@@ -1,13 +1,32 @@
 ---
 dependency:
   name: galaxy
-driver:
-  name: docker
 lint:
   name: yamllint
+driver:
+  name: vagrant
+  provider: 
+    name: virtualbox
 platforms:
-  - name: instance
-    image: ubuntu:bionic
+  - name: instance-1
+    instance_raw_config_args:
+      - "vm.network 'forwarded_port', guest: 80, host: 8080"
+    interfaces:
+      - auto_config: true
+        network_name: private_network
+        type: dhcp
+    config_options:
+      synced_folder: True
+    box: bento/ubuntu-18.04
+    memory: 1024
+    cpus: 1
+    provider_options:
+      gui: False
+    provider_raw_config_args:
+      - "customize ['modifyvm', :id, '--cpuexecutioncap', '50']"
+    provider_override_args:
+      - "vm.synced_folder './', '/vagrant', disabled: true, type: 'nfs'"
+    provision: True
 provisioner:
   name: ansible
   lint:
