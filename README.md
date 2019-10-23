@@ -17,9 +17,16 @@ Role variables with their defaults:
 docker_version: "18.06.1"
 docker_apt_key_id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
 docker_apt_key_url: https://download.docker.com/linux/ubuntu/gpg
+docker_users: []
 ```
 
-The `docker_version` should be the version you want pinned, so a newer version does not automatically get installed when adding a server later.
+The `docker_version` should be the version you want pinned, so a newer version does not automatically get installed when adding a server later.  `docker_users` should be a list with one or more users that should be added to the docker group.
+
+```yaml
+docker_users:
+  - ubuntu
+  - vagrant
+```
 
 
 Dependencies
