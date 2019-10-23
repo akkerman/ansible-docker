@@ -15,6 +15,7 @@
     owner: "root"
     group: "root"
     mode: "0644"
+  register: pinning
 
 - name: add docker apt key
   apt_key:
@@ -32,6 +33,7 @@
     name: docker-ce
     update_cache: yes
     cache_valid_time: 600
+    state: latest
 
 - name: enable docker service
   systemd:
