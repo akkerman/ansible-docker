@@ -1,6 +1,13 @@
 ---
 # tasks file for ansible-docker
 
+- name: install package to allow apt to use repo over https
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+    state: present
+
 - name: pin docker version
   template:
     src: "docker-ce.pref.j2"
@@ -9,7 +16,7 @@
     group: "root"
     mode: "0644"
 
-- name: add apt key
+- name: add docker apt key
   apt_key:
     id: "{{ docker_apt_key_id }}"
     url: "{{ docker_apt_key_url }}"
