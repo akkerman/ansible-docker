@@ -5,7 +5,7 @@ lint:
   name: yamllint
 driver:
   name: vagrant
-  provider: 
+  provider:
     name: virtualbox
 platforms:
   - name: instance-1
@@ -16,17 +16,17 @@ platforms:
         network_name: private_network
         type: dhcp
     config_options:
-      synced_folder: True
+      synced_folder: true
     box: bento/ubuntu-18.04
     memory: 1024
     cpus: 1
     provider_options:
-      gui: False
+      gui: false
     provider_raw_config_args:
       - "customize ['modifyvm', :id, '--cpuexecutioncap', '50']"
     provider_override_args:
       - "vm.synced_folder './', '/vagrant', disabled: true, type: 'nfs'"
-    provision: True
+    provision: true
 provisioner:
   name: ansible
   lint:
