@@ -9,8 +9,6 @@ driver:
     name: virtualbox
 platforms:
   - name: instance-1
-    instance_raw_config_args:
-      - "vm.network 'forwarded_port', guest: 80, host: 8080"
     interfaces:
       - auto_config: true
         network_name: private_network
