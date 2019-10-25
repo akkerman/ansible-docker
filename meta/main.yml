@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: docker
   author: Marcel Akkerman
   description: Docker on Ubuntu
   company: viewsource.nl
