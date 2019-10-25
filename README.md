@@ -1,4 +1,4 @@
-ansible-docker
+akkerman.docker
 =========
 
 Installs docker on ubuntu bionic with version pinning support.
@@ -50,7 +50,7 @@ Example Playbook
 - hosts: all
     become: true
     roles:
-        - ansible-docker
+        - akkerman.docker
 ```
 
 License
