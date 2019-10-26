@@ -1,4 +1,4 @@
-akkerman.docker
+Ansible Role for Docker
 =========
 
 Installs docker on ubuntu bionic with version pinning support.
