@@ -42,5 +42,6 @@ scenario:
     - create
     - converge
     - idempotence
+    - check
     - verify
     - destroy
