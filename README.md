@@ -1,7 +1,7 @@
 Ansible Role for Docker
 =========
 
-Installs docker on ubuntu bionic with version pinning support.
+Installs docker on Ubuntu with version pinning support.
 
 Requirements
 ------------
