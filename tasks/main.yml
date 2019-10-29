@@ -1,20 +1,22 @@
 ---
 # tasks file for akkerman.docker
 
-- name: install package to allow apt to use repo over https
-  apt:
-    name:
-      - apt-transport-https
-      - ca-certificates
-    state: present
 
 - name: pin docker version
+  tags: version_pin
   template:
     src: "docker-ce.pref.j2"
     dest: "/etc/apt/preferences.d/docker-ce.pref"
     owner: "root"
     group: "root"
     mode: "0644"
+
+- name: install package to allow apt to use repo over https
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+    state: present
 
 - name: add docker apt key
   apt_key:
